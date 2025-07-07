@@ -5,7 +5,7 @@
   --accent: #3ed8c1;
   --light-grey: #e0e4ea;
   --primary-orange: #f5a623;
-  --backgroud-white: #f2f2f2;
+  --bg-white: #f2f2f2;
 }
 
 @theme inline {
@@ -13,6 +13,7 @@
   --color-accent: var(--accent);
   --color-light-grey: var(--light-grey);
   --color-primary-orange: var(--primary-orange);
+  --color-bg-white: var(--bg-white);
   --font-primary: var(--font-poppins);
 }
 
@@ -24,7 +25,7 @@
 } */
 
 body {
-  background: var(--background-white);
+  background: #ffffff;
   color: var(--primary);
   font-family: var(--font-poppins);
 }
