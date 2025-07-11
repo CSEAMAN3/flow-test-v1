@@ -14,6 +14,8 @@ export default function HeaderNav() {
   const [toggleNav, setToggleNav] = useState(false)
   const [navWidth, setNavWidth] = useState("100vw")
 
+  const filteredNav = headerNav.filter(link => link.href !== "/")
+
   useEffect(() => {
     const updateNavWidth = () => {
       if(innerWidth < 550){
@@ -34,7 +36,7 @@ export default function HeaderNav() {
   }, [])
 
   return (
-    <div>
+    <div className="z-50">
       {/* burger navigation */}
       <motion.div animate={toggleNav ? "open" : "close"}>
         <motion.div 
@@ -54,14 +56,17 @@ export default function HeaderNav() {
             }
           }}  
         >
-          {/* <div className="h-full w-[20px] bg-accent absolute top-0 left-0" /> */}
           <nav className="mt-32">
             <ul className="px-12">
               {headerNav.map(link => {
                 const isActive = pathname === link.href
                 return (
                   <li key={link.title} className="mb-8">
-                    <Link href={link.href} className={`font-bold text-xl ${isActive ? "text-accent" : "text-white"}`}>{link.title}</Link>
+                    <Link 
+                      href={link.href} 
+                      className={`font-bold text-xl ${isActive ? "text-accent" : "text-white hover:text-accent"}`}
+                      onClick={() => setToggleNav(!toggleNav)}
+                    >{link.title}</Link>
                   </li>
                 )
               })}
@@ -73,14 +78,14 @@ export default function HeaderNav() {
 
         {/* nav bars */}
       <motion.div 
-        className="w-8 h-8 absolute top-12 right-8 cursor-pointer"
+        className={`w-8 h-8 ${toggleNav ? "fixed" : "absolute"} top-8 right-8 cursor-pointer lg:hidden group`}
         onClick={() => setToggleNav(!toggleNav)}
         animate={toggleNav ? "open" : "close"}
         initial={false}
       >
         {/* top bar */}
         <motion.div 
-          className="w-full h-[6px] bg-white absolute rounded-full"
+          className="w-full h-[6px] bg-white absolute group-hover:bg-accent transition-colors duration-300 rounded-full"
           style={{
             top: "0%",
             rotate: "0deg",
@@ -101,7 +106,7 @@ export default function HeaderNav() {
         />
         {/* middle bar */}
         <motion.div 
-          className="w-full h-[6px] bg-white absolute rounded-full"
+          className="w-full h-[6px] bg-white absolute rounded-full group-hover:bg-accent transition-colors duration-300"
           style={{
             top: "50%",
             rotate: "0deg",
@@ -118,7 +123,7 @@ export default function HeaderNav() {
         />
         {/* bottom bar */}
         <motion.div 
-          className="w-full h-[6px] bg-white absolute rounded-full"
+          className="w-full h-[6px] bg-white absolute rounded-full group-hover:bg-accent transition-colors duration-300"
           style={{
             top: "",
             rotate: "",
@@ -138,7 +143,19 @@ export default function HeaderNav() {
           }}
         />
       </motion.div>
-      
+      {/* desktop nav */}
+      <nav className="hidden lg:block">
+          <ul className="flex gap-6 content-baseline mt-4">
+            {filteredNav.map(link => {
+              const isActive = pathname === link.href
+              return (
+                <li key={link.href}>
+                  <Link href={link.href} className={`${isActive ? "text-accent" : "text-white hover:text-accent"} font-bold`}>{link.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+      </nav>
     </div>
   )
 }

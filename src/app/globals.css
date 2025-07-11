@@ -6,11 +6,13 @@
   --light-grey: #e0e4ea;
   --primary-orange: #f5a623;
   --bg-white: #f2f2f2;
+  --dark-accent: #33b29f;
 }
 
 @theme inline {
   --color-primary: var(--primary);
   --color-accent: var(--accent);
+  --color-dark-accent: var(--dark-accent);
   --color-light-grey: var(--light-grey);
   --color-primary-orange: var(--primary-orange);
   --color-bg-white: var(--bg-white);
@@ -29,3 +31,77 @@ body {
   color: var(--primary);
   font-family: var(--font-poppins);
 }
+
+/* .scroller{
+  max-width: 1200px;
+  margin-inline: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -100vw;
+  }
+}
+
+.item{
+  margin-top: 12px;
+  left: 100%;
+  animation-name: scrollLeft;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  width: 100%;
+  position: absolute;
+}
+
+.item1{
+  animation-delay: calc(10s / 3 * (3 - 1) * -1);
+}
+
+.item2{
+  animation-delay: calc(10s / 3 * (3 - 2) * -2);
+}
+
+.item3{
+  animation-delay: calc(10s / 3 * (3 - 3) * -3);
+} */
+
+/* .scroller {
+  max-width: 1200px;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+}
+
+@keyframes scrollLeft {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.item {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin-top: 12px;
+  animation-name: scrollLeft;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+}
+.item1 {
+  animation-delay: 0s;
+}
+.item2 {
+  animation-delay: 10s;
+}
+.item3 {
+  animation-delay: 20s;
+} */

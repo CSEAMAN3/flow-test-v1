@@ -19,6 +19,6 @@ export const headerNav : Nav[] = [
   },
   {
     href: "/terms-and-conditions",
-    title: "Terms and Conditions",
+    title: "T&Cs",
   },
 ]
