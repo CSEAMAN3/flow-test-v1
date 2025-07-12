@@ -4,6 +4,8 @@ import { drainageServiceTabs, plumbingServiceTabs } from "@/lib/serviceTabs";
 import Image from "next/image";
 import Link from "next/link";
 import Reviews from "@/components/Reviews";
+import Cta from "@/components/Cta";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   return (
@@ -122,6 +124,12 @@ export default function Home() {
       </div>
       {/* review section */}
       <Reviews />
+      <Cta />
+      <div className="py-16 px-8 max-w-[840px] mx-auto">
+        <h3 className="font-bold text-center text-lg sm:text-xl md:text-2xl mb-2">Frequently Asked Questions</h3>
+        <p className="font-light text-balance text-center">Got a question about our drainage or plumbing services? We&#39;ve answered some of the most common queries below. If you can&#39;t find what you&#39;re looking for, feel free to contact us, we&#39;re always happy to help.</p>
+      </div>
+      <Faq />
     </main>
   );
 }
